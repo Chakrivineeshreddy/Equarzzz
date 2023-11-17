@@ -2,6 +2,7 @@ package com.Pageobjects;
 
 import static org.testng.Assert.assertEquals;
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,6 +20,7 @@ import com.base.Testbase;
 
 public class AdminScenarios1BuyProduct extends Testbase {
 	String ID="";
+	String status="";
 	Utils uts=new Utils();
 	@FindBy(xpath = "//span[text()='Electronics']")
 	WebElement elec;
@@ -99,6 +101,8 @@ public class AdminScenarios1BuyProduct extends Testbase {
 	WebElement orderstatus;
 	@FindBy(xpath = "//button[@class='swal2-confirm swal2-styled']")
 	WebElement statusconfirm_popup;
+	@FindBy(xpath="//*[@class='table __table text-center']/tbody/tr")
+	List<WebElement> listoforder;
 	
 	
 	public  AdminScenarios1BuyProduct (WebDriver driver) {
@@ -158,6 +162,29 @@ public class AdminScenarios1BuyProduct extends Testbase {
 		 String window1 = driver.getWindowHandle();
 		 uts.Windowhandless(window1);
 		 driver.navigate().refresh();
+//for(WebElement lisorder:listoforder)
+//{
+//System.out.println(lisorder.getText());	
+//
+//}
+int i,listsize=listoforder.size();
+String beforexpathrow="//*[@class='table __table text-center']/tbody/tr[";
+String afterxpathrow="]";
+String beforexpathdata="//*[@class='table __table text-center']/tbody/tr[";
+String afterxpathdata="]/td[3]";
+for(i=1;i<=listsize;i++)
+{
+String xpathrow=beforexpathrow+i+afterxpathrow;
+String xpathdata=beforexpathdata+i+afterxpathdata;
+WebElement rowname=driver.findElement(By.xpath(xpathrow));
+if(rowname.getText().contains(id))
+{
+WebElement dataform=driver.findElement(By.xpath(xpathdata))	;
+status=dataform.getText();
+}
 
 }
+System.out.println(status);
+assertEquals("Confirmed", status);
+	}
 }
