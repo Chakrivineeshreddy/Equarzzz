@@ -94,7 +94,7 @@ public class AddToCart extends Testbase {
     	Waterbottles.click();
     	Bottle.click();
     	addcart.click();
-    	wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+    	wait=new WebDriverWait(driver, 15);
     	String msg=wait.until(ExpectedConditions.visibilityOf(success)).getText();
     	assertEquals("Successfully added!", msg);
     	return new homepage();
@@ -104,7 +104,7 @@ public class AddToCart extends Testbase {
     	
     	
     	Slide.click();  	
-    	wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+    	wait=new WebDriverWait(driver,15);
     	wait.until(ExpectedConditions.elementToBeClickable(banner));
     	banner.click();
     	Phant.click();
@@ -119,7 +119,7 @@ public class AddToCart extends Testbase {
 	   footban.click();
 	   Jeans.click();
 	   addcart.click();
-	   wait= new WebDriverWait(driver, Duration.ofSeconds(15));
+	   wait= new WebDriverWait(driver,15);
 		 String msg=wait.until(ExpectedConditions.visibilityOf(success)).getText();
 	 	assertEquals("Successfully added!", msg);
 	 	return new homepage();
@@ -130,7 +130,7 @@ public class AddToCart extends Testbase {
 		
 		   dealbuy.click();
 		   addcart.click();
-		   wait= new WebDriverWait(driver, Duration.ofSeconds(15));
+		   wait= new WebDriverWait(driver,15);
 			 String msg=wait.until(ExpectedConditions.visibilityOf(success)).getText();
 		 	assertEquals("Successfully added!", msg);
 		 	return new homepage();
@@ -140,7 +140,7 @@ public class AddToCart extends Testbase {
 		
 		homepageproduct.click();
 		addcart.click();
-		wait= new WebDriverWait(driver, Duration.ofSeconds(15));
+		wait= new WebDriverWait(driver,15);
 		 String msg=wait.until(ExpectedConditions.visibilityOf(success)).getText();
 	 	assertEquals("Successfully added!", msg);
 	 	return new homepage();
@@ -153,7 +153,7 @@ public class AddToCart extends Testbase {
 		Searchproduct.clear();
 		Thread.sleep(3000);
 		addcart.click();
-		 wait= new WebDriverWait(driver, Duration.ofSeconds(15));
+		 wait= new WebDriverWait(driver,15);
 		 String msg=wait.until(ExpectedConditions.visibilityOf(success)).getText();
 	 	assertEquals("Successfully added!", msg);
 	 	return new homepage();
@@ -163,7 +163,7 @@ public class AddToCart extends Testbase {
 		wishlist.click();
 		wishlistproduct.click();
 		addcart.click();
-		 wait= new WebDriverWait(driver, Duration.ofSeconds(15));
+		 wait= new WebDriverWait(driver,15);
 		 String msg=wait.until(ExpectedConditions.visibilityOf(success)).getText();
 	 	assertEquals("Successfully added!", msg);
 	 	return new homepage();
